@@ -1,0 +1,25 @@
+package ex02;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+/*
+ * Spirng Boot Test Integration 기반
+ * Spring Boot Test Integration(@SpringBootTest) 에서는 
+ * 자동(스캔)을 위해서 설정 클래스에 @SpringBootConfiguration을 달아야 한다.
+ */
+
+//@SpringBootTest(classes={MyApplication.class})//명시 해도 되지만 보통은 안함.
+@SpringBootTest // 대신 configuration에는 위처럼 지정해야하고 springbootconfiguration을 쓰면 굳이 안적어도 됨.
+public class MyApplicationTest02 {
+	@Autowired
+	private MyComponent myComponent;
+	
+	@Test
+	public void myComponentNotNull() {
+		assertNotNull(myComponent);
+	}
+}
